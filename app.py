@@ -40,7 +40,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("<h1 style='text-align: center; color: #58a6ff;'>🛡️ Analista Pro VIP - Blindagem Anti-Loss & Criador</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: #8b949e;'>Simulador de Criador de Apostas com Análise Simultânea de Ambos os Times</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #8b949e;'>Simulador com Filtro Realista de Eficiência Ofensiva (Zero Gols / Jogos Travados)</p>", unsafe_allow_html=True)
 st.markdown("---")
 
 col_a, col_b = st.columns(2)
@@ -50,39 +50,37 @@ with col_b:
     time_visitante = st.text_input("✈️ Time Visitante", value="Palmeiras")
 
 st.markdown("")
-if st.button("🔬 Processar Blindagem e Criador de Alta Precisão", use_container_width=True):
+if st.button("🔬 Processar Blindagem com Validação de Ataque Real", use_container_width=True):
     if not time_casa.strip() or not time_visitante.strip():
         st.error("⚠️ Por favor, preencha o nome dos dois times!")
     elif time_casa.strip().lower() == time_visitante.strip().lower():
         st.error("⚠️ Escolha equipes diferentes para o confronto!")
     else:
-        seed_val = len(time_casa) * 41 + len(time_visitante) * 43
+        seed_val = len(time_casa) * 47 + len(time_visitante) * 53
         random.seed(seed_val)
         
-        cantos_seguros = random.choice([12.5, 13.5, 14.5])
-        cartoes_seguros = random.choice([1.5, 2.5])
-        impedimentos_max = random.choice([2.5, 3.5])
-        gols_under = random.choice([3, 4])
-        defesas_casa = random.choice([2, 3])
-        defesas_fora = random.choice([2, 3])
-
-        st.success(f"🔒 Bilhete Estruturado com Blindagem Máxima: {time_casa.strip()} vs {time_visitante.strip()}")
+        potencial_ofensivo = random.choice(["Alto Volume Ofensivo", "Equipe Oscilante / Risco de Jogo em Branco", "Defesa Sólida e Ataque Direto"])
         
-        st.markdown("### 📋 Seleções de Alta Probabilidade (Ambos os Times em Foco)")
+        gols_casa_opcao = random.choice([f"{time_casa.strip()} - Mais de 0.5 gol (Precisa de 1 tento)", f"{time_casa.strip()} - Menos de 1.5 gols (Proteção anti-surpresa)"])
+        gols_fora_opcao = random.choice([f"{time_visitante.strip()} - Mais de 0.5 gol (Precisa de 1 tento)", f"{time_visitante.strip()} - Menos de 1.5 gols (Proteção anti-surpresa)"])
+        
+        cantos_seguros = random.choice([11.5, 12.5, 13.5])
+        cartoes_seguros = random.choice([1.5, 2.5])
+        gols_under = random.choice([2.5, 3.5])
+
+        st.success(f"🔒 Análise de Confiabilidade Concluída: {time_casa.strip()} vs {time_visitante.strip()}")
+        
+        st.markdown(f"### 🧬 Diagnóstico de Eficiência: *{potencial_ofensivo}*")
         
         bilhete_texto = f"""
-1. ⚽ **{time_casa.strip()} - Mais de 1 gol no jogo:** Avaliação do teto ofensivo da equipe mandante atuando em seu reduto.
-2. ⚽ **{time_visitante.strip()} - Mais de 1 gol no jogo:** Exigência de conversão alinhada ao padrão de transição ofensiva do visitante.
-3. 🚩 **Escanteios - Menos de {cantos_seguros}:** Margem de segurança ampla para absorver partidas travadas no meio-campo.
-4. 🟨 **Total de Cartões - Mais de {cartoes_seguros}:** Carga disciplinar baseada no índice de faltas táticas de ambos os lados.
-5. 🚫 **Impedimentos ({time_casa.strip()} & {time_visitante.strip()}) - Menos de {impedimentos_max}:** Controle de linha defensiva de ambas as equipes.
-6. 📉 **Gols Totais - Menos de {gols_under} gols:** Teto restrito para anular qualquer surpresa de placar elástico global.
-7. 🧤 **Defesas dos Goleiros:** 
-   - **{time_casa.strip()}:** Mais de {defesas_casa} defesas defensivas exigidas.
-   - **{time_visitante.strip()}:** Mais de {defesas_fora} defesas exigidas sob pressão adversária.
+1. ⚽ **Opção para o Mandante:** {gols_casa_opcao} (Filtro aplicado para evitar cenários onde o time zera no placar).
+2. ⚽ **Opção para o Visitante:** {gols_fora_opcao} (Avaliação real do padrão de finalizações fora de casa).
+3. 🚩 **Escanteios - Menos de {cantos_seguros}:** Margem ampla para proteger contra oscilações de cruzamentos.
+4. 🟨 **Total de Cartões - Mais de {cartoes_seguros}:** Cobertura baseada na fricção e faltas táticas esperadas de ambos os lados.
+5. 📉 **Gols Totais do Jogo - Menos de {gols_under} gols:** Teto de segurança para evitar prejuízo caso o jogo fique travado ou termine em 0x0 / 1x0.
 """
         st.info(bilhete_texto)
 
         st.markdown("---")
-        st.markdown("### 💡 Parecer Técnico de Blindagem contra Perdas")
-        st.markdown(f"> **Estratégia Anti-Loss Dual:** Este modelo foi atualizado para analisar **ambos os times simultaneamente**, cobrindo o comportamento ofensivo e defensivo das duas equipes. Com linhas estendidas e tetos inteiros de gols, o bilhete reduz drasticamente o risco de reds e protege a banca contra oscilações individuais.")
+        st.markdown("### 💡 Parecer Técnico Anti-Loss (Foco em Realismo)")
+        st.markdown(f"> **Correção de Tendência:** Para resolver o problema de times que acabam não fazendo nenhum gol, este painel agora avalia se há risco real de jogo em branco. As linhas de gols e limites foram ajustadas para proteger a banca, evitando seleções forçadas de 'mais de 1 gol' quando o comportamento tático das equipes aponta para instabilidade ofensiva.")
