@@ -59,11 +59,9 @@ if st.button("🔬 Processar Raio-X Estatístico Profundo", use_container_width=
         seed_val = len(time_casa) * 17 + len(time_visitante) * 19
         random.seed(seed_val)
         
-        # Métricas avançadas de modelagem tática baseadas em comportamento profundo
         posse_casa = random.randint(51, 62)
         posse_fora = 100 - posse_casa
         
-        # Expectativa de gols inteiros para facilitar a leitura
         gols_estimados = random.choice([1, 2, 3])
         
         intensidade_duelos = random.choice([
@@ -87,7 +85,9 @@ if st.button("🔬 Processar Raio-X Estatístico Profundo", use_container_width=
         st.success(f"📊 Relatório de Inteligência Gerado para: {time_casa.strip()} vs {time_visitante.strip()}")
         
         st.markdown("### 🧬 Radiografia de Desempenho & Dinâmica Tática")
-        st.info(f"⚙️ **Comportamento Estrutural Predominante:** *{intensidade_duelos*}.\n\n* **Padrão Ofensivo:** {eficiencia_ofensiva}.\n* **Comportamento Defensivo:** {transicao_defensiva}.\n* **Projeção de Posse de Bola:** {time_casa.strip()} ({posse_casa}%) vs {time_visitante.strip()} ({posse_fora}%).")
+        
+        texto_tatico = f"⚙️ **Comportamento Estrutural Predominante:** {intensidade_duelos}.\n\n* **Padrão Ofensivo:** {eficiencia_ofensiva}.\n* **Comportamento Defensivo:** {transicao_defensiva}.\n* **Projeção de Posse de Bola:** {time_casa.strip()} ({posse_casa}%) vs {time_visitante.strip()} ({posse_fora}%)."
+        st.info(texto_tatico)
 
         st.markdown("---")
         st.markdown("### 📊 Indicadores de Gols por Placar Inteiro")
