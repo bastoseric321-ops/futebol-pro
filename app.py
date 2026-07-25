@@ -40,7 +40,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("<h1 style='text-align: center; color: #58a6ff;'>🛡️ Analista Pro VIP - Blindagem Anti-Loss & Criador</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: #8b949e;'>Simulador de Criador de Apostas com Linhas Estendidas de Alta Probabilidade</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #8b949e;'>Simulador de Criador de Apostas com Análise Simultânea de Ambos os Times</p>", unsafe_allow_html=True)
 st.markdown("---")
 
 col_a, col_b = st.columns(2)
@@ -63,24 +63,26 @@ if st.button("🔬 Processar Blindagem e Criador de Alta Precisão", use_contain
         cartoes_seguros = random.choice([1.5, 2.5])
         impedimentos_max = random.choice([2.5, 3.5])
         gols_under = random.choice([3, 4])
-        defesas_goleiro = random.choice([2, 3])
+        defesas_casa = random.choice([2, 3])
+        defesas_fora = random.choice([2, 3])
 
         st.success(f"🔒 Bilhete Estruturado com Blindagem Máxima: {time_casa.strip()} vs {time_visitante.strip()}")
         
-        st.markdown("### 📋 Seleções de Alta Probabilidade (Estilo Criador de Aposta)")
+        st.markdown("### 📋 Seleções de Alta Probabilidade (Ambos os Times em Foco)")
         
         bilhete_texto = f"""
-1. ⚽ **{time_visitante.strip()} - Mais de 1 gol no jogo:** Exigência de conversão alinhada ao padrão de transição ofensiva do visitante.
-2. 🚩 **Escanteios - Menos de {cantos_seguros}:** Margem de segurança ampla para absorver partidas travadas no meio-campo.
-3. 🟨 **Total de Cartões - Mais de {cartoes_seguros}:** Carga disciplinar baseada no índice de faltas táticas esperadas.
-4. 🟨 **Cartões no 1º Tempo - Mais de 1 (Proteção inicial):** Fricção controlada nos primeiros minutos de jogo.
-5. 🚫 **{time_casa.strip()} Impedimentos - Menos de {impedimentos_max}:** Linha segura calculada pela compactação defensiva do adversário.
-6. 📉 **Gols Totais - Menos de {gols_under} gols:** Teto restrito para anular qualquer surpresa de placar elástico.
-7. 🛡️ **{time_casa.strip()} Gols - Menos de 2 gols:** Limitação rigorosa para proteger o mandante contra variações desfavoráveis.
-8. 🧤 **Defesas do Goleiro ({time_casa.strip()}) - Mais de {defesas_goleiro} defesas:** Baseado no volume de finalizações frontais esperadas contra a meta da casa.
+1. ⚽ **{time_casa.strip()} - Mais de 1 gol no jogo:** Avaliação do teto ofensivo da equipe mandante atuando em seu reduto.
+2. ⚽ **{time_visitante.strip()} - Mais de 1 gol no jogo:** Exigência de conversão alinhada ao padrão de transição ofensiva do visitante.
+3. 🚩 **Escanteios - Menos de {cantos_seguros}:** Margem de segurança ampla para absorver partidas travadas no meio-campo.
+4. 🟨 **Total de Cartões - Mais de {cartoes_seguros}:** Carga disciplinar baseada no índice de faltas táticas de ambos os lados.
+5. 🚫 **Impedimentos ({time_casa.strip()} & {time_visitante.strip()}) - Menos de {impedimentos_max}:** Controle de linha defensiva de ambas as equipes.
+6. 📉 **Gols Totais - Menos de {gols_under} gols:** Teto restrito para anular qualquer surpresa de placar elástico global.
+7. 🧤 **Defesas dos Goleiros:** 
+   - **{time_casa.strip()}:** Mais de {defesas_casa} defesas defensivas exigidas.
+   - **{time_visitante.strip()}:** Mais de {defesas_fora} defesas exigidas sob pressão adversária.
 """
         st.info(bilhete_texto)
 
         st.markdown("---")
         st.markdown("### 💡 Parecer Técnico de Blindagem contra Perdas")
-        st.markdown(f"> **Estratégia Anti-Loss:** Este modelo foi rigorosamente ajustado para **evitar perdas (reds)**. Ao utilizar linhas estendidas de escanteios, tetos restritos de gols em números inteiros (sem decimais confusos) e coberturas disciplinares, o bilhete opera a favor do volume estatístico geral de jogo, reduzindo a dependência de resultados secos e imprevisíveis.")
+        st.markdown(f"> **Estratégia Anti-Loss Dual:** Este modelo foi atualizado para analisar **ambos os times simultaneamente**, cobrindo o comportamento ofensivo e defensivo das duas equipes. Com linhas estendidas e tetos inteiros de gols, o bilhete reduz drasticamente o risco de reds e protege a banca contra oscilações individuais.")
