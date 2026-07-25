@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 
-st.set_page_config(page_title="Analista Pro VIP - Inteligência Analítica Profunda", page_icon="📈", layout="centered")
+st.set_page_config(page_title="Analista Pro VIP - Raio-X de Desempenho", page_icon="📈", layout="centered")
 
 # Estilo visual moderno e sofisticado (CSS personalizado)
 st.markdown("""
@@ -63,8 +63,8 @@ if st.button("🔬 Processar Raio-X Estatístico Profundo", use_container_width=
         posse_casa = random.randint(51, 62)
         posse_fora = 100 - posse_casa
         
-        xG_casa = round(random.uniform(1.2, 2.3), 2)
-        xG_fora = round(random.uniform(0.7, 1.8), 2)
+        # Expectativa de gols inteiros para facilitar a leitura
+        gols_estimados = random.choice([1, 2, 3])
         
         intensidade_duelos = random.choice([
             "Pressão alta exercida no terço ofensivo com forte compactação de linhas",
@@ -79,7 +79,7 @@ if st.button("🔬 Processar Raio-X Estatístico Profundo", use_container_width=
         ])
 
         transicao_defensiva = random.choice([
-            "Vulnerabilidade pontual nas costas dos laterales durante a fase de ataque posicional",
+            "Vulnerabilidade pontual nas costas dos laterais durante a fase de ataque posicional",
             "Rigidez defensiva central sólida com excelente índice de duelos aéreos ganhos",
             "Exposição a contra-ataques rápidos devido à alta linha de marcação adotada"
         ])
@@ -87,26 +87,26 @@ if st.button("🔬 Processar Raio-X Estatístico Profundo", use_container_width=
         st.success(f"📊 Relatório de Inteligência Gerado para: {time_casa.strip()} vs {time_visitante.strip()}")
         
         st.markdown("### 🧬 Radiografia de Desempenho & Dinâmica Tática")
-        st.info(f"⚙️ **Comportamento Estrutural Predominante:** *{intensidade_duelos}*.\n\n* **Padrão Ofensivo:** {eficiencia_ofensiva}.\n* **Comportamento Defensivo:** {transicao_defensiva}.\n* **Projeção de Posse de Bola:** {time_casa.strip()} ({posse_casa}%) vs {time_visitante.strip()} ({posse_fora}%).")
+        st.info(f"⚙️ **Comportamento Estrutural Predominante:** *{intensidade_duelos*}.\n\n* **Padrão Ofensivo:** {eficiencia_ofensiva}.\n* **Comportamento Defensivo:** {transicao_defensiva}.\n* **Projeção de Posse de Bola:** {time_casa.strip()} ({posse_casa}%) vs {time_visitante.strip()} ({posse_fora}%).")
 
         st.markdown("---")
-        st.markdown("### 📊 Indicadores Quantitativos de Desempenho")
+        st.markdown("### 📊 Indicadores de Gols por Placar Inteiro")
         c1, c2, c3 = st.columns(3)
         with c1:
-            st.metric(label=f"xG {time_casa.strip()}", value=f"{xG_casa}", delta="Expectativa de Gols")
+            st.metric(label="⚽ Média de Gols Projetada", value=f"{gols_estimados} Gols", delta="Volume Estimado")
         with c2:
-            st.metric(label=f"xG {time_visitante.strip()}", value=f"{xG_fora}", delta="Expectativa de Gols")
+            st.metric(label="🚩 Volume de Cantos", value=f"{random.randint(9, 14)} Cantos", delta="Média Estimada")
         with c3:
-            st.metric(label="🚩 Volume de Cantos", value=f"{random.randint(9, 14)}", delta="Média Estimada")
+            st.metric(label="🎯 Finalizações Certas", value=f"{random.randint(8, 15)} Chutes", delta="No Alvo")
 
-        c4, c5, c6 = st.columns(3)
-        with c4:
-            st.metric(label="🟨 Índice Disciplinar", value=f"{random.randint(4, 7)} Cartões", delta="Carga de Faltas")
-        with c5:
-            st.metric(label="⚡ Faltas Projetadas", value=f"{random.randint(22, 32)}", delta="Picotar de Jogo")
-        with c6:
-            st.metric(label="🎯 Finalizações Certas", value=f"{random.randint(8, 15)}", delta="Chutes ao Alvo")
+        st.markdown("---")
+        st.markdown("### 📉 Varredura de Linhas de Gols (Controle de Placar)")
+        st.markdown(f"""
+        * **Mais de 1 gol no jogo:** Projeção baseada na superação da marca mínima de 1 tento na partida.
+        * **Mais de 2 gols no jogo:** Indicador voltado para confrontos com histórico de transições abertas.
+        * **Mais de 3 gols no jogo:** Patamar elevado de intensidade ofensiva e exposição defensiva de ambos os lados.
+        """)
 
         st.markdown("---")
         st.markdown("### 💡 Diagnóstico Técnico Estrutural Avançado")
-        st.markdown(f"> **Análise de Encaixe Tático:** A modelagem computacional para o confronto entre **{time_casa.strip()}** e **{time_visitante.strip()}** indica uma disputa acirrada pelo controle do meio-campo. A densidade de marcação apresentada pelas duas equipes sugere que o rendimento ofensivo dependerá diretamente da eficácia nas transições rápidas e do aproveitamento das bolas paradas, anulando o fator de oscilação individual em dias de baixa criatividade coletiva.")
+        st.markdown(f"> **Análise de Encaixe Tático:** A modelagem computacional para o confronto entre **{time_casa.strip()}** e **{time_visitante.strip()}** indica uma disputa acirrada pelo controle do meio-campo. A densidade de marcação apresentada pelas duas equipes sugere que o rendimento de gols dependerá diretamente da eficácia nas transições rápidas e do aproveitamento das bolas paradas, avaliando o comportamento coletivo em vez de oscilações individuais.")
