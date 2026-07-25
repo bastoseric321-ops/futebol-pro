@@ -64,6 +64,7 @@ if st.button("🚀 Gerar Análise de Blindagem & Linhas Seguras", use_container_
         cartoes_base = random.randint(4, 6)
         faltas_base = random.randint(24, 30)
         laterais_base = random.randint(36, 44)
+        chutes_base = random.randint(12, 17)
 
         st.markdown("### 📈 Indicadores & Linhas Conservadoras (Zero Red)")
         c1, c2, c3 = st.columns(3)
@@ -74,20 +75,24 @@ if st.button("🚀 Gerar Análise de Blindagem & Linhas Seguras", use_container_
         with c3:
             st.metric(label="🟨 Cartões", value=f"{cartoes_base}", delta="Linha Super Segura: 2.5+")
 
-        c4, c5 = st.columns(2)
+        c4, c5, c6 = st.columns(3)
         with c4:
-            st.metric(label="⚡ Faltas", value=f"{faltas_base}", delta="Linha Super Segura: 18.5+")
+            st.metric(label="⚡ Faltas", value=f"{faltas_base}", delta="Linha Segura: 18.5+")
         with c5:
-            st.metric(label="📐 Laterais", value=f"{laterais_base}", delta="Linha Super Segura: 28.5+")
+            st.metric(label="📐 Laterais", value=f"{laterais_base}", delta="Linha Segura: 28.5+")
+        with c6:
+            st.metric(label="🎯 Chutes ao Gol", value=f"{chutes_base}", delta="Linha Segura: 6.5+")
 
         st.markdown("---")
-        st.markdown("### 🎯 Criador de Aposta Blindada (Proteção Máxima)")
+        st.markdown("### 🎯 Criador de Aposta & Opções Expandidas (Proteção Máxima)")
         
         st.success(f"🛡️ **1. Combo Anti-Red (Gols + Dupla):** Chance Dupla ({time_casa.strip()} ou Empate) + Mais de 1.5 gols no total.")
         st.info(f"🚩 **2. Combo Escanteios Assegurados:** Mais de 6.5 escanteios no jogo (Margem de -3 cantos da média para zerar riscos).")
         st.warning(f"🟨 **3. Combo Disciplinar Leve:** Mais de 2.5 cartões na partida inteira.")
         st.error(f"⚡ **4. Combo Duplo Conforto:** {time_casa.strip()} (Empate Anula / DNB) + Mais de 25.5 laterais.")
+        st.success(f"⚽ **5. Ambas Equipes Marcam (BTTS) / Sim ou Não:** Ambas Marcam (Sim) com cobertura defensiva ou Mais de 0.5 gols no 1º Tempo.")
+        st.info(f"🎯 **6. Mercado de Chutes ao Alvo:** Mais de 6.5 finalizações certas no gol somadas entre as equipes.")
 
         st.markdown("---")
         st.markdown("### 💡 Estratégia Profissional de Recuperação de Banca")
-        st.markdown(f"> **Como usar sem tomar red:** As linhas acima foram reduzidas propositalmente (ex: se o estudo projeta 10 escanteios, indicamos a linha de 6.5). Isso absorve qualquer imprevisto em campo, garantindo que mesmo um jogo truncado bata a sua aposta com tranquilidade.")
+        st.markdown(f"> **Como usar sem tomar red:** As linhas acima foram reduzidas propositalmente (ex: se projeta 10 escanteios, indicamos a linha de 6.5). Isso absorve qualquer imprevisto em campo, garantindo que mesmo um jogo truncado bata a sua aposta com tranquilidade.")
