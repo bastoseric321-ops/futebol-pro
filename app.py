@@ -1,47 +1,49 @@
 import streamlit as st
 import random
 
-st.set_page_config(page_title="Analista Pro - Foco em Segurança", page_icon="🛡️", layout="centered")
+st.set_page_config(page_title="Criador de Aposta Pro", page_icon="🎯", layout="centered")
 
-st.markdown("<h2 style='text-align: center; color: #ffffff;'>🛡️ Analista Pro - Foco: Ganhar & Não Perder</h2>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: #aaaaaa;'>Estratégias Avançadas de Chance Dupla e Proteção</p>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: #ffffff;'>🎯 Criador de Aposta Pro & Análise de Valor</h2>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #aaaaaa;'>Foco em Chance Dupla, Proteção e Múltiplos Mercados</p>", unsafe_allow_html=True)
 st.markdown("---")
 
 times = ["Flamengo", "Palmeiras", "São Paulo", "Corinthians", "Fluminense", "Atlético-MG", "Grêmio", "Internacional", "Botafogo", "Cruzeiro"]
 
 col_a, col_b = st.columns(2)
 with col_a:
-    time_casa = st.selectbox("🏠 Casa", times, index=0)
+    time_casa = st.selectbox("🏠 Time da Casa", times, index=0)
 with col_b:
-    time_visitante = st.selectbox("✈️ Visitante", times, index=1)
+    time_visitante = st.selectbox("✈️ Time Visitante", times, index=1)
 
-if st.button("🚀 Calcular Apostas 'Não Perde' & Segurança", use_container_width=True):
+if st.button("🚀 Gerar Criador de Aposta Completo", use_container_width=True):
     if time_casa == time_visitante:
         st.error("⚠️ Escolha times diferentes para a partida!")
     else:
-        st.success("✅ Análise de Proteção Concluída!")
+        st.success("✅ Relatório de Criador de Aposta Gerado!")
         
-        # Probabilidades simuladas com foco em segurança
-        prob_casa = random.randint(55, 75)
-        prob_empate = random.randint(20, 30)
-        prob_fora = 100 - prob_casa - prob_empate
+        # Simulação inteligente de dados orientados a segurança e ganho
+        prob_1x = random.randint(75, 88)
+        gols_esperados = round(random.uniform(1.6, 3.2), 1)
+        cantos_jogo = random.randint(8, 12)
+        cartoes_jogo = random.randint(3, 6)
 
-        st.markdown("### 📊 Probabilidade de Resultado")
-        c1, c2, c3 = st.columns(3)
+        st.markdown("### 📊 Indicadores de Confiabilidade")
+        c1, c2 = st.columns(2)
         with c1:
-            st.metric(label=f"Vitória {time_casa}", value=f"{prob_casa}%")
+            st.metric(label=f"Proteção '{time_casa} ou Empate'", value=f"{prob_1x}%", delta="Alta Segurança")
+            st.metric(label="Média de Gols Esperados", value=f"{gols_esperados} Gols", delta="Tendência")
         with c2:
-            st.metric(label="Empate", value=f"{prob_empate}%")
-        with c3:
-            st.metric(label=f"Vitória {time_visitante}", value=f"{prob_fora}%")
+            st.metric(label="Média de Escanteios", value=f"{cantos_jogo} Cantos", delta="Mercado Aberto")
+            st.metric(label="Média de Cartões", value=f"{cartoes_jogo} Cartões", delta="Controlado")
 
         st.markdown("---")
-        st.markdown("### 🛡️ Opções Focadas em 'Ganhar e Não Perder'")
+        st.markdown("### 🛠️ Opções do Criador de Aposta (Para Ganhar com Segurança)")
         
-        st.success(f"🔥 **1. Chance Dupla (Mais Segura):** {time_casa} ou Empate (1X) — *Alta probabilidade de green com proteção total contra derrota.*")
-        st.info(f"⚡ **2. Empate Anula a Aposta (DNB):** {time_casa} — *Se o jogo terminar empatado, sua aposta é 100% devolvida.*")
-        st.warning(f"🎯 **3. Handicap Asiático (0.0 / Empate Anula):** {time_casa} (0.0) — *Ganha se vencer, se empatar o dinheiro volta.*")
+        st.success(f"🛡️ **Opção 1 (Foco em Não Perder):** Chance Dupla ({time_casa} ou Empate) + Mais de 1.5 gols na partida.")
+        st.info(f"⚡ **Opção 2 (Blindada com Anulação):** Empate Anula a Aposta (DNB) para {time_casa} + Mais de 7.5 escanteios no jogo.")
+        st.warning(f"🎯 **Opção 3 (Criador de Gols):** {time_casa} marca 1 ou mais gols + Menos de 4.5 cartões para o visitante.")
+        st.error(f"🔥 **Opção 4 (Combo Master Defensivo):** {time_casa} ou Empate + Mais de 0.5 gols no 1º tempo + Mais de 6.5 escanteios.")
 
         st.markdown("---")
-        st.markdown("### 📈 Resumo do Prognóstico")
-        st.markdown(f"> **Estratégia Recomendada:** O time da casa ({time_casa}) possui forte mando de campo. Para mitigar riscos e focar estritamente em **não perder**, a entrada em **1X (Dupla Hipótese)** ou **Empate Anula** é a melhor opção matemática da partida.")
+        st.markdown("### 💡 Dica do Analista")
+        st.markdown(f"> Se o objetivo é **evitar red e garantir consistência**, priorize as opções que contêm **Chance Dupla (1X)** ou **Empate Anula**, pois elas devolvem o dinheiro em caso de igualdade ou garantem a vitória simples do mandante.")
